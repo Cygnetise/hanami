@@ -24,8 +24,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'hanami-validations', '>= 1.3', '< 3'
   spec.add_dependency 'hanami-view',        '~> 1.3'
   spec.add_dependency 'hanami-helpers',     '~> 1.3'
-  spec.add_dependency 'hanami-assets',      '~> 1.3'
-  spec.add_dependency 'dry-cli',            '~> 0.5'
   spec.add_dependency 'concurrent-ruby',    '~> 1.0'
   spec.add_dependency 'bundler',            '>= 1.6', '< 3'
 

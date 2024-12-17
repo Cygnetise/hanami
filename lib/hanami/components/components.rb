@@ -296,28 +296,6 @@ module Hanami
       end
     end
 
-    # Evaluates all the Hanami assets configurations for each application in the project
-    #
-    # This is used only by `hanami assets precompile` command.
-    #
-    # @since 0.9.0
-    # @api private
-    register 'apps.assets.configurations' do
-      requires 'apps.configurations'
-
-      prepare do
-        require 'hanami/components/app/assets'
-      end
-
-      resolve do |configuration|
-        [].tap do |result|
-          configuration.apps do |app|
-            result << Components::App::Assets.resolve(app)
-          end
-        end
-      end
-    end
-
     # Finalizers for the project
     #
     # @since 0.9.0
@@ -386,7 +364,7 @@ module Hanami
     # @api private
     register 'app.frameworks' do
       run do |app|
-        ['app.controller', 'app.view', 'app.assets'].each do |c|
+        ['app.controller', 'app.view'].each do |c|
           component(c).call(app)
         end
       end
@@ -417,20 +395,6 @@ module Hanami
 
       run do |app|
         Components::App::View.resolve(app)
-      end
-    end
-
-    # Evaluate hanami-assets configuration of a single Hanami application in the project
-    #
-    # @since 0.9.0
-    # @api private
-    register 'app.assets' do
-      prepare do
-        require 'hanami/components/app/assets'
-      end
-
-      run do |app|
-        Components::App::Assets.resolve(app)
       end
     end
 
@@ -472,7 +436,6 @@ module Hanami
 
         namespace.module_eval %(#{namespace}::Controller.load!)
         namespace.module_eval %(#{namespace}::View.load!)
-        namespace.module_eval %(#{namespace}::Assets.load!)
       end
     end
   end

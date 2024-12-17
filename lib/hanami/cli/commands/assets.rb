@@ -12,5 +12,6 @@ module Hanami
     end
 
     register "assets precompile", Commands::Assets::Precompile
+    # register "assets compile", Assets::Compile
   end
 end
