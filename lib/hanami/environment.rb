@@ -439,6 +439,7 @@ module Hanami
     # @since 0.6.0
     # @api private
     def serve_static_assets?
+      return false
       SERVE_STATIC_ASSETS_ENABLED == env[SERVE_STATIC_ASSETS]
     end
 

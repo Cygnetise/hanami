@@ -3,6 +3,8 @@ require 'rack/builder'
 require 'hanami/router'
 require 'hanami/components'
 require 'hanami/common_logger'
+require 'hanami/config_for_two'
+require 'hanami/slice_registrar'
 
 module Hanami
   # Main application that mounts many Rack and/or Hanami applications.
@@ -30,8 +32,22 @@ module Hanami
       builder.run(routes)
 
       @app = builder.to_app
+      @config = Hanami::ConfigForTwo.new
     end
 
+    def slices
+      @slices ||= SliceRegistrar.new(self)
+    end
+
+    def slice_name
+      "cyg"
+    end
+    
+    def root
+      Hanami.environment.root
+    end
+
+    attr_reader :config
     # Implements Rack SPEC
     #
     # @param env [Hash] a Rack env
@@ -44,11 +60,10 @@ module Hanami
       app.call(env)
     end
 
-    private
-
     # @since 1.2.0
     # @api private
     attr_reader :app
+    private
 
     # @since 0.9.0
     # @api private
