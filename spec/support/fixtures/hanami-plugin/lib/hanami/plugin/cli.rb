@@ -1,9 +1,9 @@
-require "hanami/cli/commands"
+require "hanami/cyg_cli/commands"
 
 module Hanami
   module Plugin
-    module CLI
-      class Version < Hanami::CLI::Command
+    module CygCLI
+      class Version < Hanami::CygCLI::Command
         desc "Print Hanami plugin version"
 
         def call(*)
@@ -14,4 +14,4 @@ module Hanami
   end
 end
 
-Hanami::CLI.register "plugin version", Hanami::Plugin::CLI::Version
+Hanami::CygCLI.register "plugin version", Hanami::Plugin::CLI::Version

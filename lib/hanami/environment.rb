@@ -138,7 +138,7 @@ module Hanami
 
     # Initialize a Hanami environment
     #
-    # It accepts an optional set of configurations from the CLI commands.
+    # It accepts an optional set of configurations from the CygCLI commands.
     # Those settings override the defaults defined by this object.
     #
     # When initialized, it sets standard `ENV` variables for Rack and Hanami,
@@ -282,11 +282,11 @@ module Hanami
     #
     # In order to decide the value, it looks up the following sources:
     #
-    #   * CLI option `config`
+    #   * CygCLI option `config`
     #
     # If those are missing it falls back to the default one: `"config/"`.
     #
-    # When a relative path is given via CLI option, it assumes to be located
+    # When a relative path is given via CygCLI option, it assumes to be located
     # under application's root. If absolute path, it will be used as it is.
     #
     # @return [Pathname] the config directory
@@ -304,7 +304,7 @@ module Hanami
     #
     # In order to decide the value, it looks up the following sources:
     #
-    #   * CLI option `host`
+    #   * CygCLI option `host`
     #   * HANAMI_HOST ENV var
     #
     # If those are missing it falls back to the following defaults:
@@ -329,7 +329,7 @@ module Hanami
     #
     # In order to decide the value, it looks up the following sources:
     #
-    #   * CLI option `port`
+    #   * CygCLI option `port`
     #   * HANAMI_PORT ENV var
     #
     # If those are missing it falls back to the default one: `2300`.
@@ -360,11 +360,11 @@ module Hanami
     #
     # In order to decide the value, it looks up the following sources:
     #
-    #   * CLI option `rackup`
+    #   * CygCLI option `rackup`
     #
     # If those are missing it falls back to the default one: `"config.ru"`.
     #
-    # When a relative path is given via CLI option, it assumes to be located
+    # When a relative path is given via CygCLI option, it assumes to be located
     # under application's root. If absolute path, it will be used as it is.
     #
     # @return [Pathname] path to the Rack configuration file
@@ -379,12 +379,12 @@ module Hanami
     #
     # In order to decide the value, it looks up the following sources:
     #
-    #   * CLI option `environment`
+    #   * CygCLI option `environment`
     #
     # If those are missing it falls back to the default one:
     # `"config/environment.rb"`.
     #
-    # When a relative path is given via CLI option, it assumes to be located
+    # When a relative path is given via CygCLI option, it assumes to be located
     # under application's root. If absolute path, it will be used as it is.
     #
     # @return [Pathname] path to applications
@@ -418,7 +418,7 @@ module Hanami
     #
     # In order to decide the value, it looks up the following sources:
     #
-    #   * CLI option `code_reloading`
+    #   * CygCLI option `code_reloading`
     #
     # If those are missing it falls back to the following defaults:
     #
@@ -439,6 +439,7 @@ module Hanami
     # @since 0.6.0
     # @api private
     def serve_static_assets?
+      return false
       SERVE_STATIC_ASSETS_ENABLED == env[SERVE_STATIC_ASSETS]
     end
 

@@ -157,7 +157,7 @@ RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
 
   # Allows RSpec to persist some state between runs in order to support
-  # the `--only-failures` and `--next-failure` CLI options. We recommend
+  # the `--only-failures` and `--next-failure` CygCLI options. We recommend
   # you configure your source control system to ignore this file.
   config.example_status_persistence_file_path = "spec/examples.txt"
 
@@ -193,7 +193,7 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = :random
 
-  # Seed global randomization in this process using the `--seed` CLI option.
+  # Seed global randomization in this process using the `--seed` CygCLI option.
   # Setting this allows you to use `--seed` to deterministically reproduce
   # test failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.

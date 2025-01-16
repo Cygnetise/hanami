@@ -9,6 +9,7 @@ module Hanami
   # @since 0.9.0
   # @api private
   class Env
+    def self.load;end
     # Create a new instance
     #
     # @param env [#[],#[]=] a Hash like object. It defaults to ENV

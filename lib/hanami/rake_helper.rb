@@ -70,8 +70,8 @@ module Hanami
     # @since 1.1.0
     # @api private
     def run_hanami_command(command)
-      require "hanami/cli/commands"
-      Dry::CLI.new(Hanami::CLI::Commands).call(arguments: command.split(/[[:space:]]/))
+      require "hanami/cyg_cli/commands"
+      Dry::CLI.new(Hanami::CygCLI::Commands).call(arguments: command.split(/[[:space:]]/))
     end
     # rubocop:enable Metrics/MethodLength
   end
